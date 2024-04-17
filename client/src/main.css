@@ -1,0 +1,82 @@
+@font-face {
+  font-family: Poppins;
+  src: url("./fonts/Poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: Stylish;
+  src: url("./fonts/Stylish/Stylish-Regular.ttf");
+}
+@font-face {
+  font-family: NewRocker;
+  src: url("./fonts/NewRocker/NewRocker-Regular.ttf");
+}
+@font-face {
+  font-family: AvertaStd;
+  src: url("./fonts/AvertaStd/FontsFree-Net-AvertaStandard-Regular.ttf");
+}
+.averta {
+  font-family: "AvertaStd";
+}
+.poppins {
+  font-family: "Poppins";
+}
+.stylish {
+  font-family: "Stylish";
+}
+.newrocker {
+  font-family: "NewRocker";
+}
+
+body {
+  background: white;
+  overflow-x: hidden;
+}
+
+.bg-cream {
+  background: rgb(244, 243, 239);
+}
+.btn-junkin {
+  background: black;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+.btn-junkin:hover {
+  box-shadow: 0px 0px 2px 2px #e2e2e2;
+  background: white;
+  color: black;
+}
+.glassmorph {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: -1;
+}
+
+.in {
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+.link {
+  text-decoration: inherit;
+  text-decoration: none;
+}
+.links {
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.links:hover {
+  text-decoration: underline;
+}
+.bg-green {
+  background: rgb(229, 249, 243);
+}
