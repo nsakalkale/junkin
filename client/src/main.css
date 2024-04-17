@@ -60,7 +60,7 @@ body {
 }
 
 .in {
-  color: white;
+  color: inherit;
   -webkit-text-stroke: 1px black;
 }
 .link {
