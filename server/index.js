@@ -156,6 +156,8 @@ app.post("/getproduct", async (req, res) => {
   }
 });
 
+//NEW PAGE
+
 app.listen(8080, () => {
   console.log("Connected to 8080");
 });
