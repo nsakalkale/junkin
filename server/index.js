@@ -9,7 +9,7 @@ const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
 const options = {
-  origin: "http://localhost:3000",
+  origin: process.env.FRONT_END,
   methods: "GET, POST, PUT, DELETE, PATCH",
   credentials: true,
 };
