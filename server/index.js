@@ -9,7 +9,7 @@ const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
 const corsConfig = {
-  origin: "*",
+  origin: process.env.FRONT_END,
   methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
   credentials: true,
 };
