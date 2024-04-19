@@ -50,6 +50,7 @@ export default function Auth() {
       })
       .catch((err) => console.log(err));
   }
+  //LOGIN
   function login(e) {
     e.preventDefault();
     axios

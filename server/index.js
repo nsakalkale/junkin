@@ -79,7 +79,7 @@ app.post("/customerlogin", async (req, res) => {
   }
 });
 
-//CUSTOMER SIGN UP PAGE
+//CUSTOMER SIGN UP
 app.post("/customersignup", async (req, res) => {
   try {
     const verifyDuplicacy = await CustomerModel.findOne({
