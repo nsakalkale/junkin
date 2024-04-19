@@ -13,10 +13,9 @@ const app = express();
 //   methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
 //   credentials: true,
 // };
-app.options("", cors(corsConfig));
+app.use(cors());
 const secret = crypto.randomBytes(32).toString("hex");
 app.use(express.json());
-app.use(cors());
 
 const mongo_url = process.env.MONGODB_URL;
 mongoose
