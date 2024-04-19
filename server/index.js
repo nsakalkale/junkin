@@ -8,12 +8,13 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
-const corsConfig = {
-  origin: process.env.FRONT_END,
-  methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
-  credentials: true,
-};
-app.use(cors(corsConfig));
+app.use(
+  cors({
+    origin: process.env.FRONT_END,
+    credentials: true,
+    methods: ["GET", "POST"],
+  })
+);
 
 const secret = crypto.randomBytes(32).toString("hex");
 app.use(express.json());
@@ -162,6 +163,7 @@ app.post("/getproduct", async (req, res) => {
 
 // NEW PAGE
 
-app.listen(8080, () => {
-  console.log("Connected to 8080");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log("Connected to", PORT);
 });
