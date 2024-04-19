@@ -9,7 +9,7 @@ const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
 const corsConfig = {
-  origin: "*",
+  origin: "https://junkin.vercel.app",
   methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
   credentials: true,
 };
