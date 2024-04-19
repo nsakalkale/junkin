@@ -13,10 +13,11 @@ const corsConfig = {
   methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
   credentials: true,
 };
-app.options("", cors(corsConfig));
+
+app.use(cors(corsConfig));
+
 const secret = crypto.randomBytes(32).toString("hex");
 app.use(express.json());
-app.use(cors(corsConfig));
 
 const mongo_url = process.env.MONGODB_URL;
 mongoose
