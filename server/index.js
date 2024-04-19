@@ -13,7 +13,11 @@ const app = express();
 //   methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
 //   credentials: true,
 // };
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONT_END,
+  })
+);
 const secret = crypto.randomBytes(32).toString("hex");
 app.use(express.json());
 
