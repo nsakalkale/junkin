@@ -17,6 +17,7 @@ app.options("", cors(corsConfig));
 const secret = crypto.randomBytes(32).toString("hex");
 app.use(express.json());
 app.use(cors(corsConfig));
+
 const mongo_url = process.env.MONGODB_URL;
 mongoose
   .connect(mongo_url)
@@ -27,11 +28,12 @@ mongoose
     console.log(err);
   });
 
-//HOME PAGE
+// HOME PAGE
 app.get("/", (req, res) => {
   res.send("HI");
 });
-//GET USER PAGE
+
+// GET USER PAGE
 app.post("/getuser", async (req, res) => {
   try {
     const senduser = await CustomerModel.findOne({
@@ -47,7 +49,8 @@ app.post("/getuser", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-//CUSTOMER LOGIN PAGE
+
+// CUSTOMER LOGIN PAGE
 app.post("/customerlogin", async (req, res) => {
   try {
     const checkCustomer = await CustomerModel.findOne({
@@ -79,7 +82,7 @@ app.post("/customerlogin", async (req, res) => {
   }
 });
 
-//CUSTOMER SIGN UP
+// CUSTOMER SIGN UP
 app.post("/customersignup", async (req, res) => {
   try {
     const verifyDuplicacy = await CustomerModel.findOne({
@@ -110,7 +113,7 @@ app.post("/customersignup", async (req, res) => {
   }
 });
 
-//MANAGER LOGIN PAGE
+// MANAGER LOGIN PAGE
 app.post("/managerlogin", async (req, res) => {
   try {
     const checkManager = await ManagerModel.findOne({
@@ -142,7 +145,7 @@ app.post("/managerlogin", async (req, res) => {
   }
 });
 
-//GET PRODUCTS PAGE
+// GET PRODUCTS PAGE
 app.post("/getproduct", async (req, res) => {
   try {
     const products = await CustomerModel.find({});
@@ -157,7 +160,7 @@ app.post("/getproduct", async (req, res) => {
   }
 });
 
-//NEW PAGE
+// NEW PAGE
 
 app.listen(8080, () => {
   console.log("Connected to 8080");
