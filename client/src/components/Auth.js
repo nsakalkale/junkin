@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import dotenv from "dotenv";
 
 export default function Auth() {
   const [fname, setFName] = useState("");
@@ -15,7 +14,6 @@ export default function Auth() {
   const [phoneno, setPhoneno] = useState("");
   const [auth, setAuth] = useState(true);
   const page = useParams();
-  dotenv.config();
   const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.getItem("token")) {
