@@ -9,15 +9,14 @@ const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
 const corsConfig = {
-  origin: "https://junkin.vercel.app",
+  origin: "*",
   methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
   credentials: true,
 };
-
-app.use(cors(corsConfig));
-
+app.options("", cors(corsConfig));
 const secret = crypto.randomBytes(32).toString("hex");
 app.use(express.json());
+app.use(cors(corsConfig)); // Applying CORS middleware to all routes
 
 const mongo_url = process.env.MONGODB_URL;
 mongoose
@@ -28,6 +27,14 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+// Set CORS headers for all routes
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://junkin.vercel.app");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 
 // HOME PAGE
 app.get("/", (req, res) => {
