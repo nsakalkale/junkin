@@ -8,16 +8,18 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
-// const corsConfig = {
-//   origin: "*",
-//   methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
-//   credentials: true,
-// };
-app.use(
-  cors({
-    origin: process.env.FRONT_END,
-  })
-);
+const corsConfig = {
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
+  credentials: true,
+};
+app.use(cors(corsConfig));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", process.env.FRONT_END);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 const secret = crypto.randomBytes(32).toString("hex");
 app.use(express.json());
 
