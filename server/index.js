@@ -8,14 +8,15 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
-const options = {
-  origin: process.env.FRONT_END,
-  methods: "GET, POST, PUT, DELETE, PATCH",
+const corsConfig = {
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"],
   credentials: true,
 };
+app.options("", cors(corsConfig));
 const secret = crypto.randomBytes(32).toString("hex");
 app.use(express.json());
-app.use(cors(options));
+app.use(cors(corsConfig));
 const mongo_url = process.env.MONGODB_URL;
 mongoose
   .connect(mongo_url)
