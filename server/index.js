@@ -11,18 +11,18 @@ require("dotenv").config();
 const app = express();
 const secret = process.env.SECRET;
 // Connect to MongoDB
-const mongo_url = process.env.MONGODB_URL;
-mongoose
-  .connect(mongo_url)
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// const mongo_url = process.env.MONGODB_URL;
+// mongoose
+//   .connect(mongo_url)
+//   .then(() => {
+//     console.log("Connected to MongoDB");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 // Express middleware
-app.use(cors({ origin: "*" }));
+// app.use(cors({ origin: "*" }));
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 
