@@ -40,10 +40,32 @@ app.get("/", (req, res) => {
 //   }
 // });
 
-// Customer login route
+// CUSTOMER LOGIN PAGE
 app.post("/customerlogin", async (req, res) => {
   try {
-    // Your implementation
+    const checkCustomer = await CustomerModel.findOne({
+      username: req.body.username,
+      password: req.body.password,
+    });
+
+    if (checkCustomer) {
+      const token_id = checkCustomer._id;
+      jwt.sign(
+        { token_id },
+        secret,
+        {
+          expiresIn: "15d",
+        },
+        (err, token) => {
+          if (err) {
+            res.status(500).send({ error: "Internal server error" });
+          }
+          res.send({ token: token, error: false });
+        }
+      );
+    } else {
+      res.send({ error: true });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
