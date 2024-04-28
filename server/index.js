@@ -161,7 +161,6 @@ app.post("/getproduct", async (req, res) => {
 
 // NEW PAGE
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+app.listen(8080, () => {
   console.log("Connected to", PORT);
 });
