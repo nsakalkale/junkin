@@ -49,6 +49,7 @@ body {
   box-shadow: 0px 0px 2px 2px #e2e2e2;
   background: white;
   color: black;
+  transform: translateY(-0.25em);
 }
 .glassmorph {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -64,8 +65,12 @@ body {
   -webkit-text-stroke: 1px black;
 }
 .link {
-  text-decoration: inherit;
   text-decoration: none;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+.link:hover {
+  text-decoration: underline;
 }
 .links {
   color: black;
@@ -79,4 +84,19 @@ body {
 }
 .bg-green {
   background: rgb(229, 249, 243);
+}
+.div-links {
+  transition: all 0.3s ease-in-out;
+}
+.div-links:hover {
+  transform: translateY(-0.25em);
+}
+.hover-shadow {
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+.hover-shadow:hover {
+  box-shadow: 0 2px 4px 0 rgba(132, 132, 132, 0.2),
+    0 4px 12px 0 rgba(180, 180, 180, 0.19);
+  cursor: pointer;
 }

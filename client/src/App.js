@@ -10,6 +10,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Junkin />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/auth/login" element={<Auth />} />
           <Route exact path="/auth/signup" element={<Auth />} />
           <Route exact path="*" element={<Error />} />
