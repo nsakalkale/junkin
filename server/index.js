@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
-const CustomerModel = require("./models/Customers");
-const ManagerModel = require("./models/Manager");
+// const cors = require("cors");
+// const CustomerModel = require("./models/Customers");
+// const ManagerModel = require("./models/Manager");
 // const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
+// const jwt = require("jsonwebtoken");
+// const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
 
@@ -20,8 +20,10 @@ mongoose
     console.log(err);
   });
 
-// Express middleware
-app.use(cors({ origin: "*" }));
+// // Express middleware
+// app.use(cors({ origin: "*" }));
+// app.use(express.json());
+// app.use(allowCors);
 
 // Home route
 app.get("/", (req, res) => {
@@ -38,7 +40,7 @@ app.get("/", (req, res) => {
 //   }
 // });
 
-// CUSTOMER LOGIN PAGE
+// Customer login route
 app.post("/customerlogin", async (req, res) => {
   try {
     const checkCustomer = await CustomerModel.findOne({
@@ -56,13 +58,15 @@ app.post("/customerlogin", async (req, res) => {
         },
         (err, token) => {
           if (err) {
-            res.status(500).send({ error: "Internal server error" });
+            console.error(err); // Log the error for debugging purposes
+            res.status(500).json({ error: "Internal server error" });
+          } else {
+            res.json({ token: token, error: false });
           }
-          res.send({ token: token, error: false });
         }
       );
     } else {
-      res.send({ error: true });
+      res.json({ error: true });
     }
   } catch (error) {
     console.error(error);
