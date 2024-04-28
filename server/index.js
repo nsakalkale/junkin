@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 // const cors = require("cors");
-// const CustomerModel = require("./models/Customers");
-// const ManagerModel = require("./models/Manager");
+const CustomerModel = require("./models/Customers");
+const ManagerModel = require("./models/Manager");
 // const bcrypt = require("bcrypt");
-// const jwt = require("jsonwebtoken");
-// const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
 
