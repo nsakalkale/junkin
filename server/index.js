@@ -9,31 +9,6 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const app = express();
 
-// // CORS middleware function
-// const allowCors = (fn) => async (req, res) => {
-//   res.setHeader("Access-Control-Allow-Credentials", true);
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-//   );
-//   if (req.method === "OPTIONS") {
-//     res.status(200).end();
-//     return;
-//   }
-//   return await fn(req, res);
-// };
-
-// // Handler function for main endpoint
-// const handler = (req, res) => {
-//   const d = new Date();
-//   res.end(d.toString());
-// };
-
 // Connect to MongoDB
 const mongo_url = process.env.MONGODB_URL;
 mongoose
@@ -50,10 +25,10 @@ mongoose
 // app.use(express.json());
 // app.use(allowCors);
 
-// // Home route
-// app.get("/", (req, res) => {
-//   res.send("HI");
-// });
+// Home route
+app.get("/", (req, res) => {
+  res.send("HI");
+});
 
 // // Get user route
 // app.post("/getuser", async (req, res) => {
@@ -65,15 +40,15 @@ mongoose
 //   }
 // });
 
-// // Customer login route
-// app.post("/customerlogin", async (req, res) => {
-//   try {
-//     // Your implementation
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Internal server error" });
-//   }
-// });
+// Customer login route
+app.post("/customerlogin", async (req, res) => {
+  try {
+    // Your implementation
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 // // Customer signup route
 // app.post("/customersignup", async (req, res) => {
@@ -105,17 +80,7 @@ mongoose
 //   }
 // });
 
-// // Listen on port 8080
-// app.listen(8080, () => {
-//   console.log("Connected to 8080");
-// });
-
-const PORT = 8080;
-
-app.get("/home", (req, res) => {
-  res.status(200).json("Welcome, your app is working well");
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// Listen on port 8080
+app.listen(8080, () => {
+  console.log("Connected to 8080");
 });
