@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-// const cors = require("cors");
+const cors = require("cors");
 const CustomerModel = require("./models/Customers");
 const ManagerModel = require("./models/Manager");
 // const bcrypt = require("bcrypt");
@@ -20,10 +20,8 @@ mongoose
     console.log(err);
   });
 
-// // Express middleware
-// app.use(cors({ origin: "*" }));
-// app.use(express.json());
-// app.use(allowCors);
+// Express middleware
+app.use(cors({ origin: "*" }));
 
 // Home route
 app.get("/", (req, res) => {
