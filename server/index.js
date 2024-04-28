@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const CustomerModel = require("./models/Customers");
 const ManagerModel = require("./models/Manager");
 const bcrypt = require("bcrypt");
@@ -22,7 +23,8 @@ mongoose
 
 // Express middleware
 app.use(cors({ origin: "*" }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Home route
 app.get("/", (req, res) => {
