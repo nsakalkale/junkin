@@ -42,38 +42,38 @@ app.get("/", (req, res) => {
 // });
 
 // Customer login route
-app.post("/customerlogin", async (req, res) => {
-  try {
-    const checkCustomer = await CustomerModel.findOne({
-      username: req.body.username,
-      password: req.body.password,
-    });
+// app.post("/customerlogin", async (req, res) => {
+//   try {
+//     const checkCustomer = await CustomerModel.findOne({
+//       username: req.body.username,
+//       password: req.body.password,
+//     });
 
-    if (checkCustomer) {
-      const token_id = checkCustomer._id;
-      jwt.sign(
-        { token_id },
-        secret,
-        {
-          expiresIn: "15d",
-        },
-        (err, token) => {
-          if (err) {
-            console.error(err); // Log the error for debugging purposes
-            res.status(500).json({ error: "Internal server error" });
-          } else {
-            res.json({ token: token, error: false });
-          }
-        }
-      );
-    } else {
-      res.json({ error: true });
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
+//     if (checkCustomer) {
+//       const token_id = checkCustomer._id;
+//       jwt.sign(
+//         { token_id },
+//         secret,
+//         {
+//           expiresIn: "15d",
+//         },
+//         (err, token) => {
+//           if (err) {
+//             console.error(err); // Log the error for debugging purposes
+//             res.status(500).json({ error: "Internal server error" });
+//           } else {
+//             res.json({ token: token, error: false });
+//           }
+//         }
+//       );
+//     } else {
+//       res.json({ error: true });
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Internal server error" });
+//   }
+// });
 
 // // Customer signup route
 // app.post("/customersignup", async (req, res) => {
