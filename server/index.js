@@ -1,13 +1,13 @@
-// const express = require("express");
-// const mongoose = require("mongoose");
+const express = require("express");
+const mongoose = require("mongoose");
 // const cors = require("cors");
 // const CustomerModel = require("./models/Customers");
 // const ManagerModel = require("./models/Manager");
 // const bcrypt = require("bcrypt");
 // const jwt = require("jsonwebtoken");
 // const crypto = require("crypto");
-// require("dotenv").config();
-// const app = express();
+require("dotenv").config();
+const app = express();
 
 // // CORS middleware function
 // const allowCors = (fn) => async (req, res) => {
@@ -34,16 +34,16 @@
 //   res.end(d.toString());
 // };
 
-// // Connect to MongoDB
-// const mongo_url = process.env.MONGODB_URL;
-// mongoose
-//   .connect(mongo_url)
-//   .then(() => {
-//     console.log("Connected to MongoDB");
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+// Connect to MongoDB
+const mongo_url = process.env.MONGODB_URL;
+mongoose
+  .connect(mongo_url)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // // Express middleware
 // app.use(cors({ origin: "*" }));
@@ -110,8 +110,6 @@
 //   console.log("Connected to 8080");
 // });
 
-const express = require("express");
-const app = express();
 const PORT = 8080;
 
 app.get("/home", (req, res) => {
