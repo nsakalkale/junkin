@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 require("dotenv").config();
 const app = express();
-
+const secret = process.env.SECRET;
 // Connect to MongoDB
 const mongo_url = process.env.MONGODB_URL;
 mongoose
@@ -22,6 +22,7 @@ mongoose
 
 // Express middleware
 app.use(cors({ origin: "*" }));
+app.use(express.json());
 
 // Home route
 app.get("/", (req, res) => {
