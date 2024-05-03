@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const CustomerModel = require("./models/Customers");
 const ManagerModel = require("./models/Manager");
 const ProductModel = require("./models/Product");
@@ -8,8 +9,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 require("dotenv").config();
+
 const app = express();
 const secret = process.env.SECRET;
+
 // Connect to MongoDB
 const mongo_url = process.env.MONGODB_URL;
 mongoose
@@ -22,19 +25,13 @@ mongoose
   });
 
 // Express middleware
-app.use(
-  cors({
-    origin: ["https://junkin.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true,
-  })
-);
-
-app.use(express.json());
+app.use(cors({ origin: "https://junkin.vercel.app" })); // Allow requests only from this origin
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Home route
 app.get("/", (req, res) => {
-  res.json("HI");
+  res.send("HI");
 });
 
 // GET USER PAGE
@@ -167,6 +164,7 @@ app.get("/getproduct", async (req, res) => {
 });
 
 // Listen on port 8080
-app.listen(8080, () => {
-  console.log("Connected to 8080");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
