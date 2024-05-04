@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const CustomerModel = require("./models/Customers");
 const ManagerModel = require("./models/Manager");
 const ProductModel = require("./models/Product");
+const OrderModel = require("./models/Orders");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
@@ -25,7 +26,7 @@ mongoose
   });
 
 // Express middleware
-app.use(cors({ origin: "https://junkin.vercel.app" })); // Allow requests only from this origin
+app.use(cors({ origin: "http://localhost:3000" })); // Allow requests only from this origin
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -160,6 +161,52 @@ app.get("/getproduct", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+//ORDER INSERTION
+app.post("/orderentry", async (req, res) => {
+  try {
+    const insertOrderData = await OrderModel.create({
+      custid: req.body.custid,
+      orderid: req.body.orderid,
+      orderdate: req.body.orderdate,
+      orderstatus: req.body.orderstatus,
+      ordertotal: req.body.ordertotal,
+      orderitems: req.body.orderitems,
+      txnid: req.body.txnid,
+      paymentstatus: req.body.paymentstatus,
+    });
+    if (insertOrderData) {
+      res.send({ message: "Successfully Inserted !!!" });
+    } else {
+      res.send({ message: "Unable to Insert Data !!!" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+//INSERT PRODUCTS
+app.post("/addproducts", async (req, res) => {
+  try {
+    const insertProduct = await ProductModel.create({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      img_url: req.body.img_url,
+      type: req.body.type,
+      vnvg: req.body.vnvg,
+    });
+    if (insertProduct) {
+      res.status(201).send({ message: "Product added successfully" });
+    } else {
+      res.status(404).send({ message: "Unable to add product" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: "Internal server error" });
   }
 });
 

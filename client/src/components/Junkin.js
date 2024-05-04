@@ -38,7 +38,9 @@ export default function Junkin() {
               <Link to="/auth/login">
                 <button className="me-5 btn-junkin">Customer</button>
               </Link>
-              <button className=" btn-junkin">Manager</button>
+              <Link to="/mauth">
+                <button className=" btn-junkin">Manager</button>
+              </Link>
             </div>
           </div>
         </div>

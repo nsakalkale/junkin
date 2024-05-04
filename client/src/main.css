@@ -14,6 +14,9 @@
   font-family: AvertaStd;
   src: url("./fonts/AvertaStd/FontsFree-Net-AvertaStandard-Regular.ttf");
 }
+body {
+  min-height: 100%;
+}
 .averta {
   font-family: "AvertaStd";
 }
@@ -37,20 +40,26 @@ body {
 }
 .btn-junkin {
   background: black;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
   color: white;
   font-weight: bold;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease;
   outline: none;
 }
+
 .btn-junkin:hover {
-  box-shadow: 0px 0px 2px 2px #e2e2e2;
-  background: white;
-  color: black;
-  transform: translateY(-0.25em);
+  outline: 2px solid rgba(0, 0, 0, 1);
+  outline-offset: 2px;
+  /*transform: translateY(-0.25em);*/
 }
+.btn-junkin:focus {
+  outline: 2px solid rgba(0, 0, 0, 1);
+  outline-offset: 2px;
+  /*transform: translateY(-0.25em);*/
+}
+
 .glassmorph {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(1px);
@@ -99,4 +108,102 @@ body {
   box-shadow: 0 2px 4px 0 rgba(132, 132, 132, 0.2),
     0 4px 12px 0 rgba(180, 180, 180, 0.19);
   cursor: pointer;
+}
+.carousel_in {
+  height: 39.7rem;
+}
+.cart-counter {
+  position: absolute;
+  bottom: 55%;
+  right: -30%;
+  background-color: red;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.price-tag {
+  position: absolute;
+  bottom: 50%;
+  left: 6%;
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.payment_cart {
+  max-height: 500px;
+  overflow-y: auto; /* Use 'auto' to show scrollbar only when needed */
+  background: grey;
+}
+
+.payment_cart::-webkit-scrollbar {
+  width: 6px; /* Set width of the scrollbar */
+}
+
+.payment_cart::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 3px; /* Rounded corners of the scrollbar thumb */
+}
+::-webkit-scrollbar {
+  width: 6px; /* Set the width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light background color */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Darker color for the scrollbar handle */
+  border-radius: 10px; /* Round the corners of the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when the scrollbar handle is hovered */
+}
+/* Small devices (landscape phones, 576px and up) */
+/* Very small devices (portrait phones) */
+@media (max-width: 320px) {
+  .carousel_in {
+    height: auto;
+  }
+}
+
+/* Small devices (landscape phones) */
+@media (min-width: 321px) and (max-width: 576px) {
+  .carousel_in {
+    height: auto;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .carousel_in {
+    height: auto;
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .carousel_in {
+    height: auto;
+  }
+}
+
+/* Extra large devices (large desktops) */
+@media (min-width: 993px) {
+  .carousel_in {
+    height: 39.7rem;
+  }
 }

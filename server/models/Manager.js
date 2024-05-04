@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const CustomerSchema = new mongoose.Schema({
+const ManagerSchema = new mongoose.Schema({
   mid: {
     type: String,
     required: true,
@@ -11,6 +11,6 @@ const CustomerSchema = new mongoose.Schema({
   },
 });
 
-const Manager = mongoose.model("Manager", CustomerSchema);
+const Manager = mongoose.model("Manager", ManagerSchema);
 
 module.exports = Manager;
