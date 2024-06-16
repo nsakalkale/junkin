@@ -6,7 +6,7 @@ const CustomerModel = require("./models/Customers");
 const ManagerModel = require("./models/Manager");
 const ProductModel = require("./models/Product");
 const OrderModel = require("./models/Orders");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 require("dotenv").config();
