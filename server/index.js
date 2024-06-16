@@ -26,7 +26,7 @@ mongoose
   });
 
 // Express middleware
-app.use(cors({ origin: "http://localhost:3000" })); // Allow requests only from this origin
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
