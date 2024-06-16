@@ -24,7 +24,7 @@ export default function Products() {
     }
 
     axios
-      .get("http://localhost:8080/getproduct")
+      .get(process.env.REACT_APP_PRODUCT)
       .then((response) => {
         setProducts(response.data.products);
         setFilteredProducts(response.data.products);
