@@ -204,7 +204,7 @@ export default function Products() {
                           <b>
                             {cartItems.find((item) => item._id === product._id)
                               .quantity === 1 ? (
-                              <i class="bi bi-trash"></i>
+                              <span>&#xF5DE;</span>
                             ) : (
                               "-"
                             )}
