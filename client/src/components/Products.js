@@ -203,9 +203,11 @@ export default function Products() {
                         >
                           <b>
                             {cartItems.find((item) => item._id === product._id)
-                              .quantity === 1
-                              ? "🗑"
-                              : "-"}
+                              .quantity === 1 ? (
+                              <i class="bi bi-trash"></i>
+                            ) : (
+                              "-"
+                            )}
                           </b>
                         </button>
                         <div className="px-3 py-2 border">
