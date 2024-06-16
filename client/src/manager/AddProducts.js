@@ -20,7 +20,7 @@ export default function AddProducts() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/addproducts", formData);
+      await axios.post(process.env.REACT_APP_ADDPRODUCT, formData);
       setFormData({
         name: "",
         description: "",

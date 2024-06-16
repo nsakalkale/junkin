@@ -81,7 +81,7 @@ export default function Payment() {
     };
 
     axios
-      .post("http://localhost:8080/orderentry", orderData)
+      .post(process.env.REACT_APP_ORDERENTRY, orderData)
       .then((response) => {})
       .catch((error) => {
         console.error("Error inserting order data:", error);
