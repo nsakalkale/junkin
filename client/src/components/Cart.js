@@ -107,7 +107,13 @@ export default function Cart() {
                 </div>
                 <br />
                 <Link to="/payment">
-                  <button className="btn-junkin w-100">Payment Proceed</button>
+                  <button
+                    className={`${
+                      totalPrice > 0 ? "" : "d-none"
+                    } btn-junkin w-100`}
+                  >
+                    Payment Proceed
+                  </button>
                 </Link>
               </div>
             </div>

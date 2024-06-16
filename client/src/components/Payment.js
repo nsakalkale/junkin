@@ -21,7 +21,7 @@ export default function Payment() {
     if (token) {
       const decodedToken = jwtDecode(token).token_id;
       axios
-        .post("http://localhost:8080/getuser", { id: decodedToken })
+        .post(process.env.REACT_APP_GETUSER, { id: decodedToken })
         .then((response) => {
           setCustomerDetails(response.data.senduser);
           console.log(response.data.senduser._id);
@@ -52,7 +52,7 @@ export default function Payment() {
     setIsPaymentSuccessful(true);
     const cartItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
     sessionStorage.removeItem("cartItems");
-    toast.error("Invalid Credentials !! Try Again !", {
+    toast.success("Payment Successful !", {
       position: "top-right",
       theme: "dark",
     });
