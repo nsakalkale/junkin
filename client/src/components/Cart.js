@@ -60,7 +60,7 @@ export default function Cart() {
                               </div>
                             </div>
                             <div className="d-flex justify-content-between">
-                              <div className="text-muted col-md-9">
+                              <div className="text-muted col-md-9 col-8">
                                 {item.description}
                               </div>
                               <div className="">
@@ -94,7 +94,7 @@ export default function Cart() {
                     <b>Taxes & Charges:</b>
                   </div>
                   <div className="">
-                    <b>₹ {totalPrice * 0.09}</b>
+                    <b>₹ {(totalPrice * 0.09).toFixed(2)}</b>
                   </div>
                 </div>
                 <div className="d-flex justify-content-between mt-2">
@@ -102,7 +102,7 @@ export default function Cart() {
                     <b>Total:</b>
                   </div>
                   <div className="">
-                    <b>₹ {totalPrice + totalPrice * 0.09}</b>
+                    <b>₹ {(totalPrice + totalPrice * 0.09).toFixed(2)}</b>
                   </div>
                 </div>
                 <br />
