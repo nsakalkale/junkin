@@ -102,9 +102,9 @@ export default function Products() {
       <Navbar cartCount={cartCount} cartItems={cartItems} />
       <div className="averta">
         <div className="bg-cream p-3">
-          <Link to="/cart" className="position-fixed">
+          {/* <Link to="/cart" className="position-fixed">
             <button className="btn-junkin">Go To Cart</button>
-          </Link>
+          </Link> */}
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-md-3">
